@@ -10,12 +10,11 @@ public class MainFrame extends JFrame{
     private Container cp;
     private JButton JbtnA = new JButton("範例");
     private JButton JbtnB = new JButton("加密");
-    private JButton JbtnD = new JButton("解密");
     private JButton JbtnC = new JButton("清除");
     private JButton JbtnE = new JButton("離開");
     private JLabel Jla = new JLabel("Key");
     private JTextField Jtf = new JTextField("1");
-    private JPanel Jpa = new JPanel(new GridLayout(7,1,3,3));
+    private JPanel Jpa = new JPanel(new GridLayout(6,1,3,3));
     private JTextArea JtaL = new JTextArea();
     private JTextArea JtaR = new JTextArea();
     private JScrollPane JspL = new JScrollPane(JtaL);
@@ -33,7 +32,6 @@ public class MainFrame extends JFrame{
         cp.setLayout(new BorderLayout(3,3));
         Jpa.add(JbtnA);
         Jpa.add(JbtnB);
-        Jpa.add(JbtnD);
         Jpa.add(Jla);
         Jpa.add(Jtf);
         Jpa.add(JbtnC);
@@ -53,15 +51,6 @@ public class MainFrame extends JFrame{
                 char data[] = JtaL.getText().toCharArray();
                 int len = data.length , key = Integer.parseInt(Jtf.getText());
                 for(int x = 0 ; x < len ; x ++){data[x] += key;}
-                JtaR.setText(new String(data));
-            }
-        });
-        JbtnD.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                char data[] = JtaL.getText().toCharArray();
-                int len = data.length , key = Integer.parseInt(Jtf.getText());
-                for(int x = 0 ; x < len ; x ++){data[x] -= key;}
                 JtaR.setText(new String(data));
             }
         });
